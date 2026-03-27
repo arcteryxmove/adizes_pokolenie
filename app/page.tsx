@@ -5,6 +5,7 @@ import { Hero } from "@/components/hero";
 import { LifecycleSection } from "@/components/lifecycle-section";
 import { SiteFooter } from "@/components/site-footer";
 import { StagesGrid } from "@/components/stages-grid";
+import { OutcomesSection } from "@/components/outcomes-section";
 import { ORG_ROWS } from "@/lib/data";
 
 export default function HomePage() {
@@ -206,6 +207,10 @@ export default function HomePage() {
               <p>KPI + OKR, но не бюрократия. Процессы служат результату.</p>
             </article>
           </div>
+        </FadeSection>
+
+        <FadeSection id="section-6" ariaLabelledBy="s6-title">
+          <OutcomesSection />
         </FadeSection>
       </main>
       <SiteFooter />
