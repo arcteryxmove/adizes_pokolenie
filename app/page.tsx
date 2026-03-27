@@ -4,7 +4,7 @@ import { FadeSection } from "@/components/fade-section";
 import { Hero } from "@/components/hero";
 import { LifecycleSection } from "@/components/lifecycle-section";
 import { SiteFooter } from "@/components/site-footer";
-import { StagesGrid } from "@/components/stages-grid";
+import { StagesAccordion } from "@/components/stages-accordion";
 import { OutcomesSection } from "@/components/outcomes-section";
 import { ORG_ROWS } from "@/lib/data";
 
@@ -23,7 +23,7 @@ export default function HomePage() {
             Десять стадий жизненного цикла: от идеи до окончания — с привязкой к спирали и уровням
             Коллинза.
           </p>
-          <StagesGrid />
+          <StagesAccordion />
         </FadeSection>
 
         <FadeSection id="section-3" ariaLabelledBy="s3-title">

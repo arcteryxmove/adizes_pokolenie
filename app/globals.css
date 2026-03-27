@@ -441,6 +441,125 @@ section h2 {
   margin-bottom: 4px;
 }
 
+/* ——— Стадии: аккордеон ——— */
+.stage-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stage-acc-item {
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-left: 4px solid var(--stage-color, var(--accent-green));
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+.stage-acc-item.is-open {
+  box-shadow: var(--shadow-lift);
+}
+
+.stage-acc-header {
+  width: 100%;
+  margin: 0;
+  padding: 16px 14px 16px 16px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.stage-acc-header:hover {
+  background: color-mix(in srgb, var(--surface) 92%, var(--stage-color));
+}
+.stage-acc-header:focus-visible {
+  outline: 2px solid var(--accent-green);
+  outline-offset: -2px;
+}
+
+.stage-acc-header-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.stage-acc-titles {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stage-acc-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+}
+
+.stage-acc-name {
+  font-weight: 600;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.stage-acc-header .tag-pill {
+  margin-top: 0;
+}
+
+.stage-acc-chevron {
+  flex-shrink: 0;
+  color: var(--text-secondary);
+  transition: transform 0.28s ease, color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+.stage-acc-item.is-open .stage-acc-chevron {
+  transform: rotate(180deg);
+  color: var(--text);
+}
+
+.stage-acc-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.38s ease;
+}
+.stage-acc-item.is-open .stage-acc-panel {
+  grid-template-rows: 1fr;
+}
+
+.stage-acc-panel-inner {
+  overflow: hidden;
+  min-height: 0;
+  border-top: 1px solid var(--border);
+  padding: 14px 16px 18px 16px;
+}
+
+.stage-acc-grid {
+  margin-top: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stage-acc-panel {
+    transition: none;
+  }
+  .stage-acc-chevron {
+    transition: none;
+  }
+}
+
 /* ——— Collins pyramid ——— */
 .pyramid {
   display: flex;
