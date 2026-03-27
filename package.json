@@ -1,9 +1,22 @@
 {
   "name": "adizes-lifecycle",
   "private": true,
-  "version": "1.0.0",
-  "description": "Статическая страница (без сборки фронтенда)",
+  "version": "2.0.0",
   "scripts": {
-    "build": "node -e \"require('fs').accessSync('index.html');\""
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^15.1.7",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.0",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "typescript": "^5.7.3"
   }
 }
