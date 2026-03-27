@@ -2,8 +2,8 @@
   "name": "adizes-lifecycle",
   "private": true,
   "version": "1.0.0",
-  "description": "Домашнее задание: жизненный цикл компании (статическая страница)",
+  "description": "Статическая страница (без сборки фронтенда)",
   "scripts": {
-    "build": "echo 'Static site — no build step'"
+    "build": "node -e \"require('fs').accessSync('index.html');\""
   }
 }
