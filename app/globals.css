@@ -651,11 +651,16 @@ footer .done { font-weight: 600; margin-bottom: 12px; }
 footer .books { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.6; }
 footer .small { font-size: 0.75rem; color: var(--text-secondary); }
 
+/* Без scale на <g>: иначе курсор «выпадает» из зоны hover и кружок дёргается */
 .dot-hit {
   cursor: pointer;
-  transition: transform 0.15s ease;
 }
-.dot-hit:hover { transform: scale(1.12); }
+.dot-hit .curve-dot {
+  transition: filter 0.15s ease;
+}
+.dot-hit:hover .curve-dot {
+  filter: brightness(1.12);
+}
 .dot-hit:focus { outline: 2px solid var(--accent-green); outline-offset: 2px; }
 
 .curve-svg text {

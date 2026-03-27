@@ -109,6 +109,7 @@ export function LifecycleSection() {
                 onKeyDown={(e) => onKeyDot(e, s)}
               >
                 <circle
+                  className="curve-dot"
                   cx={s.cx}
                   cy={s.cy}
                   r={s.r}
