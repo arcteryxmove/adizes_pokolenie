@@ -441,7 +441,7 @@ section h2 {
   margin-bottom: 4px;
 }
 
-/* ——— Стадии: аккордеон ——— */
+/* ——— Стадии: аккордеон (одна карточка = шапка + контент) ——— */
 .stage-accordion {
   display: flex;
   flex-direction: column;
@@ -454,16 +454,17 @@ section h2 {
   background: var(--surface);
   border-left: 4px solid var(--stage-color, var(--accent-green));
   overflow: hidden;
-  transition: box-shadow 0.2s ease;
+  transition: box-shadow 0.22s ease, border-color 0.2s ease;
 }
 .stage-acc-item.is-open {
   box-shadow: var(--shadow-lift);
+  border-color: color-mix(in srgb, var(--border) 65%, var(--stage-color));
 }
 
-.stage-acc-header {
+/* Вся «шапка» пункта — один кликабельный блок */
+.stage-acc-trigger {
   width: 100%;
   margin: 0;
-  padding: 16px 14px 16px 16px;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -474,17 +475,23 @@ section h2 {
   background: transparent;
   border: none;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, padding 0.2s ease;
 }
-.stage-acc-header:hover {
+.stage-acc-item:not(.is-open) .stage-acc-trigger {
+  padding: 12px 14px 12px 14px;
+}
+.stage-acc-item.is-open .stage-acc-trigger {
+  padding: 14px 14px 12px 16px;
+}
+.stage-acc-trigger:hover {
   background: color-mix(in srgb, var(--surface) 92%, var(--stage-color));
 }
-.stage-acc-header:focus-visible {
+.stage-acc-trigger:focus-visible {
   outline: 2px solid var(--accent-green);
   outline-offset: -2px;
 }
 
-.stage-acc-header-main {
+.stage-acc-trigger-inner {
   display: flex;
   align-items: flex-start;
   gap: 12px;
@@ -492,12 +499,12 @@ section h2 {
   min-width: 0;
 }
 
-.stage-acc-titles {
+.stage-acc-main {
   flex: 1;
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
 }
 
 .stage-acc-title-row {
@@ -510,11 +517,32 @@ section h2 {
 .stage-acc-name {
   font-weight: 600;
   font-size: 1.05rem;
-  line-height: 1.35;
+  line-height: 1.3;
 }
 
-.stage-acc-header .tag-pill {
+.stage-acc-trigger .tag-pill {
   margin-top: 0;
+}
+
+/* В свёрнутом виде — только строка названия + бейдж; подписи раскрываются вместе с блоком */
+.stage-acc-item:not(.is-open) .stage-acc-meta {
+  display: none;
+}
+
+.stage-acc-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.stage-acc-meta .en {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+.stage-acc-meta-spiral {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
 }
 
 .stage-acc-chevron {
@@ -531,6 +559,7 @@ section h2 {
   color: var(--text);
 }
 
+/* Контент — часть той же карточки, без «отдельного подвала» */
 .stage-acc-panel {
   display: grid;
   grid-template-rows: 0fr;
@@ -543,12 +572,18 @@ section h2 {
 .stage-acc-panel-inner {
   overflow: hidden;
   min-height: 0;
-  border-top: 1px solid var(--border);
-  padding: 14px 16px 18px 16px;
+  padding: 0 16px 16px;
+  background: color-mix(in srgb, var(--surface) 92%, var(--bg));
+}
+
+.stage-acc-item.is-open .stage-acc-panel-inner {
+  padding-top: 2px;
 }
 
 .stage-acc-grid {
   margin-top: 0;
+  padding-top: 12px;
+  border-top: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
 }
 
 @media (prefers-reduced-motion: reduce) {
