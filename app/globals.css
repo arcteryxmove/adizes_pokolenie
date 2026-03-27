@@ -644,6 +644,8 @@ section h2 {
 
 /* ——— Section 4 timeline ——— */
 .timeline {
+  --timeline-dot-size: 14px;
+  --timeline-track-pad-top: 24px;
   padding: 20px 16px;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -654,22 +656,24 @@ section h2 {
 
 .timeline-track {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   min-width: 560px;
   gap: 8px;
   position: relative;
-  padding: 24px 0 8px;
+  padding: var(--timeline-track-pad-top) 0 8px;
 }
 
+/* Линия через центр точек: не top:50% трека (там центр колонки с текстом ниже точки) */
 .timeline-line {
   position: absolute;
   left: 8%;
   right: 8%;
-  top: 50%;
+  top: calc(
+    var(--timeline-track-pad-top) + var(--timeline-dot-size) / 2 - 1px
+  );
   height: 2px;
   background: linear-gradient(90deg, var(--accent-green), var(--accent-red));
-  transform: translateY(-50%);
   z-index: 0;
 }
 
@@ -681,8 +685,8 @@ section h2 {
 }
 
 .timeline-dot {
-  width: 14px;
-  height: 14px;
+  width: var(--timeline-dot-size);
+  height: var(--timeline-dot-size);
   border-radius: 50%;
   margin: 0 auto 8px;
   border: 2px solid var(--surface);
