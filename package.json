@@ -1,0 +1,9 @@
+{
+  "name": "adizes-lifecycle",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Домашнее задание: жизненный цикл компании (статическая страница)",
+  "scripts": {
+    "build": "echo 'Static site — no build step'"
+  }
+}
